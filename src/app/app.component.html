@@ -1,0 +1,34 @@
+<div class="max-w[1300px]">
+  <app-navbar [uahToUsd]='uahToUsd' [uahToEur]="uahToEur"></app-navbar>
+  <div class="flex gap-5 items-center justify-center h-[70vh]">
+    <div class="flex flex-col gap-5 w-[40%]">
+      <select #fromCurrency class="focus:outline-none focus:border-0" [(ngModel)]="fromCur" (ngModelChange)="setFromCur($event)">
+        <option value="USD">USD</option>
+        <option value="UAH">UAH</option>
+        <option value="EUR">EUR</option>
+      </select>
+      <input 
+          type="number" 
+          placeholder="0"
+          [(ngModel)]="fromValue"    
+          (ngModelChange)="changeTo($event)"
+          #from="ngModel"    
+          class="p-5 border-solid border-2 border-black rounded-2xl text-5xl">
+    </div>
+    <div class="flex flex-col gap-5 w-[40%]">
+      <select #toCurrency class="focus:outline-none focus:border-0" [(ngModel)]="toCur" (ngModelChange)="setToCur($event)">
+        <option value="USD">USD</option>
+        <option value="UAH">UAH</option>
+        <option value="EUR">EUR</option>
+      </select>
+      <input  
+          type="number"
+          placeholder="0"
+          [(ngModel)]="toValue"
+          (ngModelChange)="changeFrom($event)"
+          #to="ngModel"
+          class="p-5 border-solid border-2 border-black rounded-2xl text-5xl"
+          >
+    </div>
+  </div>
+</div>
